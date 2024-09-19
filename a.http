@@ -1,0 +1,14 @@
+GET http://localhost:3000/washingmachine HTTP/1.1
+
+
+###
+PUT http://localhost:3000/washingmachine/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "time": 220,
+  "status": "EMPTY"
+}
+
+###
+GET http://localhost:3000/washingmachine/1 HTTP/1.1
