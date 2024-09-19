@@ -5,12 +5,12 @@ import bodyParser from "body-parser";
 
 import cors from "cors";
 const app = express();
+dotenv.config();
 const corsOptions = {
   origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-dotenv.config();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/washingmachine", router);
