@@ -6,11 +6,12 @@ import bodyParser from "body-parser";
 import cors from "cors";
 const app = express();
 dotenv.config();
-const corsOptions = {
-  origin: process.env.FRONTEND_URL,
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://washingmachine-ui.onrender.com', // Chỉ cho phép origin này
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Các phương thức HTTP được phép
+  allowedHeaders: ['Content-Type', 'Authorization'] // Các header được phép
+}));
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/washingmachine", router);
